@@ -64,7 +64,7 @@ const FetchData = () => {
               </div>
             </div>
 
-            <div className="pt-10 px-8 grid grid-cols-2 space-y-5 bg-gray-200 pb-10">
+            <div className="pt-10 px-4 grid grid-cols-2 space-y-5 bg-gray-200 pb-10">
               <div className="flex items-center pt-5 gap-3">
                 <FaTemperatureHigh
                   size={33}
