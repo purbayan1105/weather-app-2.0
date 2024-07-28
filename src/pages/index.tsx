@@ -5,11 +5,14 @@ import Searchbar from "@/components/Searchbar";
 
 const index = () => {
   return (
-    <div className="bg-gradient-to-tl from-blue-300 to-blue-500 via-white h-screen w-[361px] lg:flex mx-auto items-center justify-center lg:h-auto">
+    <div className=" h-[100dvh] w-[361px] lg:flex mx-auto items-center justify-center lg:h-auto">
       <div className="">
-        <Header />
-        <Searchbar />
-        <DisplayName />
+        {/* <Header /> */}
+
+        <div className="bg-blue-600">
+          <Searchbar />
+          <DisplayName />
+        </div>
         <FetchData />
       </div>
     </div>

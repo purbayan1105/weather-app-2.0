@@ -51,20 +51,31 @@ const DisplayName = () => {
 
     fetchData();
   }, [location]);
+
+  const date = new Date();
+  const newDate = date.toString().split(" ");
+
+  console.log(date);
+  console.log(newDate);
+  const toDay =
+    newDate[0] + ", " + newDate[1] + " " + newDate[2] + " " + newDate[3];
+  console.log(toDay);
+
   return (
     <>
-      <div className="flex justify-center items-center mt-8 gap-5 text-2xl font-semibold pb-5">
-        <div className="">{data?.location.name}</div>
-        <FaLocationDot onClick={getLocation} />
+      <div className="italic mx-8 mt-5 text-gray-400">{toDay}</div>
+      <div className="mt-2 mx-8 flex  justify-between">
+        <div className="text-3xl text-white font-bold">
+          {data?.location.name}
+        </div>
+        <FaLocationDot
+          onClick={getLocation}
+          size={33}
+          className="bg-white px-2 rounded-full"
+        />
       </div>
       <div className="flex justify-center items-center mt-6">
-        <img src={data?.current.condition.icon} alt="" />
-      </div>
-      <div className="flex justify-center mx-auto mt-3 space-x-2 items-center">
-        <span className="font-semibold text-lg">
-          {" "}
-          {data?.current.condition.text}{" "}
-        </span>
+        <img src={data?.current.condition.icon} alt="" width={100} />
       </div>
     </>
   );

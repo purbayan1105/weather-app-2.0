@@ -4,6 +4,7 @@ import axios from "axios";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { FaTemperatureHalf, FaTemperatureHigh, FaWind } from "react-icons/fa6";
+import { FiCloudRain } from "react-icons/fi";
 import { WiHumidity } from "react-icons/wi";
 
 const FetchData = () => {
@@ -53,27 +54,64 @@ const FetchData = () => {
     return (
       <>
         {data ? (
-          <div className="mt-24 space-y-16 bg-[#36363660] mx-5 py-5 rounded-lg px-3">
-            <div className="flex flex-col justify-center items-center gap-5 text-2xl">
-              <FaTemperatureHigh size={30} color="green" />
-
-              <p>{data?.current.temp_c} °C</p>
+          <div className="">
+            <div className="bg-blue-600 pb-5">
+              <div className="text-6xl px-8 pt-14 font-bold text-white italic">
+                {data.current.temp_c}°C
+              </div>
+              <div className="px-8 pt-2 text-xl font-normal text-gray-200">
+                {data.current.condition.text}
+              </div>
             </div>
-            <div className="flex justify-center items-center gap-10">
-              <div className="text-lg space-y-3">
-                <WiHumidity size={30} color="pink" />
 
-                <p> {data?.current.humidity}%</p>
+            <div className="pt-10 px-8 grid grid-cols-2 space-y-5 bg-gray-200 pb-10">
+              <div className="flex items-center pt-5 gap-3">
+                <FaTemperatureHigh
+                  size={33}
+                  className="px-2 bg-white rounded-full"
+                />
+                <div className="">
+                  <div className="text-sm font-semibold text-gray-600">
+                    Feels Like
+                  </div>
+                  <div className="text-2xl text-gray-700 font-bold">
+                    {data.current.feelslike_c}°C
+                  </div>
+                </div>
               </div>
-              <div className="text-lg space-y-3">
-                <FaWind size={25} color="purple" />
-
-                <p> {data?.current.wind_kph} Kph</p>
+              <div className="flex items-center gap-3">
+                <WiHumidity size={33} className="px-1 bg-white rounded-full" />
+                <div className="">
+                  <div className="text-sm font-semibold text-gray-600">
+                    Humidity
+                  </div>
+                  <div className="text-2xl text-gray-700 font-bold">
+                    {data.current.humidity}%
+                  </div>
+                </div>
               </div>
-              <div className="text-lg space-y-3">
-                <FaTemperatureHalf size={25} color="brown" />
 
-                <p>{data?.current.feelslike_c} °C</p>
+              <div className="flex items-center gap-3">
+                <FiCloudRain size={33} className="px-1 bg-white rounded-full" />
+                <div className="">
+                  <div className="text-sm font-semibold text-gray-600">
+                    Precipitation
+                  </div>
+                  <div className="text-2xl text-gray-700 font-bold">
+                    {data.current.precip_mm} mm
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <FaWind size={33} className="px-1 bg-white rounded-full" />
+                <div className="">
+                  <div className="text-sm font-semibold text-gray-600">
+                    Wind Speed
+                  </div>
+                  <div className="text-2xl text-gray-700 font-bold">
+                    {data.current.wind_kph} mm
+                  </div>
+                </div>
               </div>
             </div>
           </div>
