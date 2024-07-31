@@ -109,7 +109,7 @@ const FetchData = () => {
                     Wind Speed
                   </div>
                   <div className="text-2xl text-gray-700 font-bold">
-                    {data.current.wind_kph} mm
+                    {data.current.wind_kph} kph
                   </div>
                 </div>
               </div>
